@@ -1,0 +1,22 @@
+create database bank_management_system;
+use bank_management_system;
+show databases;
+create table customerDetails(ID int auto_increment primary key,
+firstName varchar(30),
+middleName varchar(30),
+lastName varchar(30),
+mobileNumber int (12) unique );
+insert into customerDetails(Id, firstName, middleName, lastName, mobileNumber) values ('1', 'Vinayak', 'Prakash', 'Garole', '838086760'),
+('2', 'Durga','Prasad','Pradhan','96969695'),
+('3', 'Geetesh','Gajanan','Kumbalkar','96969152'),
+('4', 'Soumya','Prasad','Pradhan','96969785');
+
+select * from customerDetails;
+
+create table accountDetails(Customer_Id int , Account_Number int (15), Account_Type varchar(10), Account_Balance int (10), Branch_Code int (10),foreign key (Customer_Id) references customerDetails (CustomerId) on delete cascade);
+insert into accountDetails(Customer_Id, Account_Number,Account_Type,Account_Balance,Branch_Code) values ('1','555','savings','10000','FGF455'),
+('2','441','savings','2020','G113'),
+('3','235','current','3200','FG1'),
+('4','783','current','480','Y112');
+
+select * from accountDetails;
